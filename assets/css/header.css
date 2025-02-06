@@ -1,12 +1,27 @@
+@font-face {
+    font-family: 'Neue Machina';
+    src: url('../fonts/neue-machina-regular.otf');
+}
+
 .header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
-@font-face {
-    font-family: 'Neue Machina';
-    src: url('../fonts/neue-machina-regular.otf');
+.header::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('../img/icons/points.svg');
+    
 }
 
 .header .foto {
@@ -32,7 +47,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 0.5rem;
+    margin: .5rem;
     font-size: 1.125rem;
 }
 
@@ -41,7 +56,6 @@
     display: inline-block;
     width: 1rem;
     height: 1rem;
-    
     background-repeat: no-repeat;
     background-size: contain;
     margin-right: 1.5rem;
@@ -62,4 +76,32 @@
 
 .description .phone::before {
     background-image: url('../img/icons/whatsapp.svg');
+}
+
+
+@media only screen and (min-width: 768px) {
+    .header {
+        display: grid;
+        grid-template-areas:
+        "photo title"
+        "photo description"
+        ;
+        
+    }
+
+    .header .photo {
+        grid-area: photo;
+        margin:0 auto;
+    }
+
+    .header .title {
+        grid-area: title;
+        text-align: start;
+        max-width: 210px;
+
+    }
+
+    .header .description {
+        grid-area: description;
+    }
 }
